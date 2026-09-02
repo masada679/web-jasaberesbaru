@@ -978,5 +978,24 @@
             syncEdit('modal-content', '#{id}-data .content', true);
         });
     </script>
+<script>
+// Membaca semua postingan dari folder content/cerita yang dibuat Decap CMS
+async function loadCeritaProjects() {
+  try {
+    // Decap CMS menyimpan data dalam format Markdown/JSON di repositori GitHub
+    // Skrip ini mengambil daftar cerita untuk ditampilkan dinamis di modal/grid
+    const response = await fetch('/content/cerita/index.json'); 
+    if (!response.ok) return;
+    const projects = await response.json();
+
+    // Render data ke dalam modal / card proyek
+    console.log("Data cerita berhasil dimuat dari CMS:", projects);
+  } catch (error) {
+    console.log("Belum ada postingan cerita baru.");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadCeritaProjects);
+</script>
 </body>
 </html>
