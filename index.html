@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+    <meta name="google-site-verification" content="hE03EhFb8IWGQwoDoBBov-fJNAStA5JjMDYMuhkcsMY">
+
+    <!-- PRIMARY SEO METADATA & LOCAL KEYWORDS -->
+    <title id="meta-title">Jasa Bersih Lahan, Babat Suket & Potong Pohon | Ponorogo, Madiun, Magetan, Trenggalek, Ngawi</title>
+    <meta name="description" content="Layanan jasa pembersihan lahan kosong, potong rumput liar, babat suket, tebas semak belukar, tebang pohon, dan kuli pembersihan lahan di Ponorogo, Madiun, Magetan, Trenggalek, Ngawi. Cepat & Tuntas!">
+    <meta name="keywords" content="jasa bersih lahan ponorogo, bersih rumput ponorogo, babat suket, potong rumput, tenaga kasar, kuli pembersihan lahan, tebang pohon, jasa tebas semak, pembersihan lahan madiun, potong pohon magetan, pembukaan lahan ngawi, jasa pangkas pohon trenggalek">
+    <meta name="author" content="BERES">
+    <meta name="robots" content="index, follow">
+
+    <!-- OPEN GRAPH (OG) META TAGS -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jasa Bersih Lahan, Babat Suket & Tebang Pohon | BERES">
+    <meta property="og:description" content="Layanan profesional jasa pembersihan lahan, potong rumput liar, babat suket, dan penyedia kuli pembersihan lahan di Ponorogo, Madiun, Magetan, Trenggalek, Ngawi.">
+    <meta property="og:image" content="https://i.imgur.com/pecv5Vg.jpeg">
+    <meta property="og:url" content="https://beres-lahan.com">
+
+    <!-- GEO TARGETING METADATA (EAST JAVA) -->
+    <meta name="geo.region" content="ID-JI">
+    <meta name="geo.placename" content="Ponorogo">
+    <meta name="geo.position" content="-7.8671;111.4656">
+    <meta name="ICBM" content="-7.8671, 111.4656">
+
+    <!-- NETLIFY IDENTITY WIDGET -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- JSON-LD SCHEMA MARKUP (LOCAL SEO OPTIMIZED) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "BERES - Jasa Bersih Lahan & Pekerjaan Tenaga Kasar",
+      "description": "Layanan profesional jasa bersih lahan, babat suket, potong rumput, tebas semak, tebang pohon, dan penyedia kuli pembersihan lahan di Ponorogo, Madiun, Magetan, Trenggalek, dan Ngawi.",
+      "image": "https://i.imgur.com/pecv5Vg.jpeg",
+      "@id": "https://beres-lahan.com",
+      "url": "https://beres-lahan.com",
+      "telephone": "+6285188226469",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Utama Ponorogo",
+        "addressLocality": "Ponorogo",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "63411",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.8671,
+        "longitude": 111.4656
+      },
+      "servesDeliveryArea": ["Ponorogo", "Madiun", "Magetan", "Trenggalek", "Ngawi"],
+      "knowsAbout": ["Babat Suket", "Potong Rumput", "Tenaga Kasar", "Pembersihan Lahan", "Tebang Pohon", "Kuli Pembersihan Lahan"],
+      "priceRange": "Rp"
+    }
+    </script>
+
+    <!-- STYLES & FONTS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        
+        /* Admin Interactive Styles */
+        body.admin-mode [contenteditable="true"] { transition: all 0.2s; border-radius: 4px; }
+        body.admin-mode [contenteditable="true"]:hover { outline: 2px dashed #10b981; background: rgba(16, 185, 129, 0.05); cursor: text; }
+        body.admin-mode [contenteditable="true"]:focus { outline: 2px solid #10b981; background: white; }
+
+        /* Admin Image Overlays */
+        .admin-img-box { position: relative; overflow: hidden; }
+        .img-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.6);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.3s; color: white; cursor: pointer; z-index: 20;
+            pointer-events: none; border-radius: inherit;
+        }
+        body.admin-mode .admin-img-box:hover .img-overlay { opacity: 1; pointer-events: auto; }
+
+        /* Toast UI */
+        #toast { transform: translateY(100px); opacity: 0; transition: all 0.5s; pointer-events: none; }
+        #toast.show { transform: translateY(0); opacity: 1; }
+
+        @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .animate-bounce-slow { animation: bounce-slow 2s infinite; }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-gray-100 shadow-sm relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <!-- LOGO IMAGE -->
+                <div class="admin-img-box rounded-lg">
+                    <img id="brandLogoImg" src="https://i.imgur.com/ZlhIa2B.png" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO+BERES'" alt="Logo BERES Jasa Bersih Lahan" class="h-10 sm:h-12 w-auto object-contain">
+                    <div class="img-overlay" onclick="openImageModal('brandLogoImg')"><i class="fa-solid fa-link"></i></div>
+                </div>
+                
+                <!-- DESKTOP MENU LINKS -->
+                <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+                    <a href="index.html" class="hover:text-emerald-600 transition text-sm">Beranda</a>
+                    <a href="#layanan" class="hover:text-emerald-600 transition text-sm">Layanan</a>
+                    <a href="#galeri" class="hover:text-emerald-600 transition text-sm">Galeri</a>
+                    <a href="cerita.html" class="hover:text-emerald-600 transition text-sm">Cerita Kami</a>
+                </div>
+
+                <!-- SOSMED, CTA & MOBILE TOGGLE -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:flex items-center space-x-4 border-r pr-4 border-gray-200 text-slate-400">
+                        <a href="https://www.youtube.com/@beres" target="_blank" class="hover:text-red-600 transition text-lg"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/beres.png" target="_blank" class="hover:text-emerald-600 transition text-lg"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1CxFzULVy2/" target="_blank" class="hover:text-emerald-600 transition text-lg"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@beres.png" target="_blank" class="hover:text-emerald-600 transition text-lg"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=6285188226469" class="bg-emerald-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-emerald-700 transition shadow-lg text-sm whitespace-nowrap">Hubungi Kami</a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-slate-600 hover:text-emerald-600 focus:outline-none text-2xl ml-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 w-full absolute left-0 top-full shadow-lg">
+            <div class="flex flex-col px-4 py-4 space-y-4 font-semibold text-slate-600 text-center">
+                <a href="index.html" class="hover:text-emerald-600 transition">Beranda</a>
+                <a href="#layanan" class="hover:text-emerald-600 transition">Layanan</a>
+                <a href="#galeri" class="hover:text-emerald-600 transition">Galeri</a>
+                <a href="cerita.html" class="hover:text-emerald-600 transition">Cerita Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION (FULL WIDTH BANNER & EXTRACTED BUTTONS) -->
+        <header id="home" class="relative pt-24 sm:pt-32 bg-white pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
+                <h1 id="hero-main-h1" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+                    Jasa Bersih Lahan & Potong Pohon <br>
+                    <span class="text-emerald-600 italic underline decoration-emerald-200">Ponorogo, Madiun, Magetan, Trenggalek, Ngawi</span>
+                </h1>
+                <p id="hero-sub" class="mt-4 text-slate-600 max-w-2xl mx-auto font-medium">Spesialis babat suket, potong rumput, tebang pohon, dan kuli pembersihan lahan profesional.</p>
+            </div>
+
+            <!-- FULL WIDTH HERO BANNER -->
+            <div class="w-full relative admin-img-box">
+                <img id="heroBannerImg" src="https://i.imgur.com/pecv5Vg.jpeg" referrerpolicy="no-referrer" crossorigin="anonymous" class="w-full h-[50vh] sm:h-[75vh] min-h-[500px] sm:min-h-[600px] object-cover" alt="Banner pembersihan lahan dan babat suket ponorogo">
+                <div class="img-overlay" onclick="openImageModal('heroBannerImg')"><i class="fa-solid fa-link text-3xl"></i></div>
+            </div>
+
+            <!-- EXTRACTED CTA BUTTONS -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="https://api.whatsapp.com/send?phone=6285188226469" class="bg-emerald-600 text-white px-8 py-4 rounded-full font-extrabold text-lg hover:bg-emerald-700 transition shadow-xl transform hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp mr-2 text-2xl"></i> Konsultasi Gratis Sekarang
+                    </a>
+                    <span id="hero-stat-txt" class="text-sm font-bold text-slate-800 bg-white border border-gray-200 px-6 py-3 rounded-full shadow-sm italic">100+ Lahan Telah Dibersihkan Tuntas</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- LAYANAN SECTION (RESTORED 6 ITEMS) -->
+        <section id="layanan" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 id="svc-h2" class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight italic">Layanan Utama Kami</h2>
+                    <div class="w-20 h-1.5 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-xl transition group text-center sm:text-left">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition mx-auto sm:mx-0"><i class="fa-solid fa-leaf"></i></div>
+                        <h3 id="s1-t" class="text-xl font-bold mb-3">Tebas Semak Belukar</h3>
+                        <p id="s1-d" class="text-slate-600 text-sm leading-relaxed">Pembersihan rumput liar, ilalang, dan tanaman merambat yang memenuhi lahan Anda.</p>
+                    </article>
+                    <article class="p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-xl transition group text-center sm:text-left">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition mx-auto sm:mx-0"><i class="fa-solid fa-scissors"></i></div>
+                        <h3 id="s2-t" class="text-xl font-bold mb-3">Pangkas Pohon Rimbun</h3>
+                        <p id="s2-d" class="text-slate-600 text-sm leading-relaxed">Pemangkasan dahan pohon kecil hingga sedang agar pekarangan lebih terang dan rapi.</p>
+                    </article>
+                    <article class="p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-xl transition group text-center sm:text-left">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition mx-auto sm:mx-0"><i class="fa-solid fa-trash-can"></i></div>
+                        <h3 id="s3-t" class="text-xl font-bold mb-3">Pembersihan Puing</h3>
+                        <p id="s3-d" class="text-slate-600 text-sm leading-relaxed">Jasa angkut sisa bangunan, sampah proyek, atau tumpukan material yang tak terpakai.</p>
+                    </article>
+                    <article class="p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-xl transition group text-center sm:text-left">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition mx-auto sm:mx-0"><i class="fa-solid fa-trowel"></i></div>
+                        <h3 id="s4-t" class="text-xl font-bold mb-3">Perataan & Gali Tanah</h3>
+                        <p id="s4-d" class="text-slate-600 text-sm leading-relaxed">Layanan tambahan untuk perataan tanah (grading) dan penggalian pondasi/saluran.</p>
+                    </article>
+                    <article class="p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-xl transition group text-center sm:text-left">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition mx-auto sm:mx-0"><i class="fa-solid fa-house-crack"></i></div>
+                        <h3 id="s5-t" class="text-xl font-bold mb-3">Pembongkaran Bangunan</h3>
+                        <p id="s5-d" class="text-slate-600 text-sm leading-relaxed">Membongkar bangunan tua, pagar, atau struktur tembok di area lahan kosong.</p>
+                    </article>
+                    <article class="p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-xl transition group text-center sm:text-left">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition mx-auto sm:mx-0"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                        <h3 id="s6-t" class="text-xl font-bold mb-3">Buang Limbah Area</h3>
+                        <p id="s6-d" class="text-slate-600 text-sm leading-relaxed">Layanan pengangkutan limbah keluar lokasi pengerjaan hingga benar-benar bersih.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARA PESAN (RESTORED) -->
+        <section id="alur" class="py-20 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 id="alur-h2" class="text-4xl font-extrabold uppercase italic tracking-wider text-emerald-400 mb-10 leading-tight">Cara Pesan Layanan</h2>
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-black text-xl shadow-lg italic">1</div>
+                                <div>
+                                    <h4 id="a1-t" class="text-xl font-bold mb-1 italic">Kirim Dokumentasi</h4>
+                                    <p id="a1-d" class="text-slate-400 text-sm">Kirim foto/video kondisi lahan terbaru via WhatsApp kami.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-6">
+                                <div class="bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-black text-xl shadow-lg italic">2</div>
+                                <div>
+                                    <h4 id="a2-t" class="text-xl font-bold mb-1 italic">Estimasi Biaya</h4>
+                                    <p id="a2-d" class="text-slate-400 text-sm">Tim memberikan estimasi biaya & jadwal pengerjaan secara transparan.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-6">
+                                <div class="bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-black text-xl shadow-lg italic">3</div>
+                                <div>
+                                    <h4 id="a3-t" class="text-xl font-bold mb-1 italic">Lahan Bersih Tuntas</h4>
+                                    <p id="a3-d" class="text-slate-400 text-sm">Tim datang membawa peralatan modern & lahan beres seketika.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-img-box rounded-3xl overflow-hidden shadow-2xl">
+                        <img id="caraPesanImg" src="https://i.imgur.com/XgIDp6F.jpeg" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=800'" alt="Proses pengerjaan tenaga kasar dan kuli pembersihan lahan harian di Ponorogo" class="w-full h-full object-cover">
+                        <div class="img-overlay" onclick="openImageModal('caraPesanImg')"><i class="fa-solid fa-link text-3xl"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI -->
+        <section id="galeri" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 text-slate-900">
+                    <h2 id="gal-h2" class="text-3xl font-bold italic tracking-tight uppercase">Portofolio Pekerjaan</h2>
+                    <p id="gal-p" class="mt-4 text-slate-600 italic">Bukti nyata pengerjaan tim BERES di berbagai wilayah.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-container">
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-1" src="https://i.imgur.com/6tsRIeE.jpeg" alt="Potong rumput liar Ponorogo" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-1')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-2" src="https://i.imgur.com/yh3YtDa.jpeg" alt="Babat suket Madiun" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-2')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-3" src="https://i.imgur.com/Lndagpq.jpeg" alt="Tebas semak Magetan" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-3')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-4" src="https://i.imgur.com/Xkkbwp5.jpeg" alt="Pembersihan lahan Ngawi" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-4')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-5" src="https://i.imgur.com/a0M3UjM.jpeg" alt="Tebang pohon Trenggalek" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-5')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-6" src="https://i.imgur.com/OaMYwAt.jpeg" alt="Tenaga kasar Ponorogo" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-6')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-7" src="https://i.imgur.com/a290AS1.jpeg" alt="Kuli pembersihan lahan Madiun" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-7')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-8" src="https://i.imgur.com/98MN3Vl.jpeg" alt="Bersih rumput Magetan" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-8')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-9" src="https://i.imgur.com/Rnkgq7P.jpeg" alt="Proses pangkas pohon dan buang limbah di Trenggalek" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-9')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-10" src="https://i.imgur.com/1vQn4lD.jpeg" alt="Pembukaan lahan kosong dan gali tanah di Ngawi" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-10')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-11" src="https://i.imgur.com/mvHe7gc.jpeg" alt="Kuli pembersihan membantu bongkar bangunan di Ponorogo" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-11')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                    <div class="admin-img-box h-60 rounded-xl shadow-md"><img id="gal-12" src="https://i.imgur.com/g6NnvKL.jpeg" alt="Pekerjaan bersih lahan tuntas dengan tenaga kasar di Madiun" class="w-full h-full object-cover"><div class="img-overlay" onclick="openImageModal('gal-12')"><i class="fa-solid fa-link text-xs"></i></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YOUTUBE VIDEO SECTION (MOVED TO BOTTOM) -->
+        <section id="video" class="py-20 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 id="vid-h2" class="text-3xl font-extrabold uppercase tracking-tight italic mb-4 text-emerald-400">Video Proses Pengerjaan</h2>
+                <p id="vid-p" class="text-slate-400 mb-10 max-w-2xl mx-auto">Lihat langsung bagaimana tim tenaga kasar kami merubah lahan terbengkalai menjadi bersih dan siap pakai (Before - After).</p>
+                
+                <div class="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800 bg-black" style="padding-top: 56.25%;">
+                    <iframe id="yt-iframe" class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-gray-400 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-slate-800 pb-6 text-center sm:text-left">
+                <div>
+                    <div class="admin-img-box inline-block mb-3 bg-white p-2 rounded-md shadow-sm">
+                        <img id="footerLogoImg" src="https://i.imgur.com/ZlhIa2B.png" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO+BERES'" alt="Logo Footer BERES Jasa Bersih Lahan" class="h-8 w-auto object-contain">
+                        <div class="img-overlay" onclick="openImageModal('footerLogoImg')"><i class="fa-solid fa-link text-[10px]"></i></div>
+                    </div>
+                    <p id="foo-desc" class="text-xs leading-relaxed max-w-xs uppercase font-semibold">Solusi bersih lahan profesional tuntas dan terpercaya untuk area Jawa Timur.</p>
+                </div>
+                <div class="flex justify-center space-x-6 text-2xl">
+                    <a href="https://www.youtube.com/@beres" target="_blank" class="hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/beres.png" target="_blank" class="hover:text-emerald-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1CxFzULVy2/" target="_blank" class="hover:text-emerald-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@beres.png" target="_blank" class="hover:text-emerald-500 transition"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="text-right space-y-1 hidden sm:block">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-2">Wilayah Layanan</h4>
+                    <p class="text-xs">Ponorogo • Madiun • Magetan • Trenggalek • Ngawi</p>
+                    <p class="text-xs mt-2">WhatsApp: 0851-8822-6469</p>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center mt-6 text-xs uppercase tracking-tighter">
+                <p id="copyright-txt">© 2024 BERES - Jasa Bersih Lahan. All rights reserved.</p>
+                <div class="flex items-center space-x-2">
+                    <!-- DISCREET ADMIN LOGIN BUTTON -->
+                    <button id="adminTrigger" onclick="openLoginModal()" class="text-slate-700 hover:text-emerald-500 transition focus:outline-none" title="Admin Control">
+                        <i class="fa-solid fa-lock text-sm"></i> Admin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WA -->
+    <a id="btnWaFloat" href="https://api.whatsapp.com/send?phone=6285188226469" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-emerald-600 transition z-40 animate-bounce-slow">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="loginModal" class="fixed inset-0 bg-black/80 z-[300] items-center justify-center p-4 backdrop-blur-sm transition-opacity opacity-0 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 relative transform transition-transform duration-300 flex flex-col scale-95">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600 text-3xl shadow-inner">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800">Admin CMS Login</h3>
+                <p class="text-xs text-slate-500 mt-1">Masukkan PIN Editor (090909) atau gunakan Netlify Identity.</p>
+            </div>
+            <input type="password" id="adminPinInput" class="w-full border-2 border-gray-200 rounded-xl p-3 text-center text-2xl tracking-widest focus:border-emerald-500 outline-none mb-6 font-bold text-slate-700 transition" placeholder="••••••" onkeypress="if(event.key === 'Enter') verifyPin()">
+            <div class="flex flex-col space-y-3">
+                <div class="flex space-x-3">
+                    <button onclick="closeLoginModal()" class="flex-1 py-3 text-slate-600 font-bold hover:bg-slate-100 rounded-xl transition">Batal</button>
+                    <button onclick="verifyPin()" class="flex-1 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-200">Akses PIN</button>
+                </div>
+                <button onclick="netlifyIdentity.open()" class="w-full py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition text-sm">
+                    <i class="fa-solid fa-cloud mr-2"></i> Login via Netlify Identity
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL UI -->
+    <div id="admin-bar" class="fixed bottom-0 left-0 w-full bg-slate-900 border-t border-emerald-500 p-4 transform transition-transform duration-300 z-[100] flex flex-col md:flex-row justify-between items-center text-white shadow-2xl translate-y-full">
+        <div class="flex items-center space-x-3 mb-3 md:mb-0">
+            <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold"><i class="fa-solid fa-user-tie"></i></div>
+            <div>
+                <h4 class="font-bold text-sm leading-none">CMS Editor Aktif</h4>
+                <p class="text-[11px] text-gray-400 mt-1">Klik teks untuk edit. Klik ikon link untuk ganti gambar.</p>
+            </div>
+        </div>
+        <div class="flex space-x-3">
+            <button onclick="saveAllChanges()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-xs sm:text-sm font-bold transition flex items-center">
+                <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Simpan ke Server
+            </button>
+            <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-xs sm:text-sm font-bold transition flex items-center">
+                <i class="fa-solid fa-power-off mr-2"></i> Keluar
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL URL GAMBAR -->
+    <div id="imageModal" class="fixed inset-0 bg-black/80 z-[200] hidden items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative">
+            <h3 class="text-xl font-bold mb-2 text-slate-800">Ubah Media</h3>
+            <p class="text-sm text-slate-500 mb-4">Masukkan URL gambar baru atau URL Embed YouTube.</p>
+            <input type="text" id="imgUrlInput" class="w-full border border-gray-300 rounded-lg p-3 mb-5 focus:ring-2 focus:ring-emerald-500 outline-none text-slate-800" placeholder="https://...">
+            <div class="flex justify-end space-x-3">
+                <button onclick="closeImageModal()" class="px-4 py-2 text-slate-600 font-semibold hover:bg-gray-100 rounded-lg transition">Batal</button>
+                <button onclick="applyImageURL()" class="px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition">Terapkan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-full shadow-lg z-[250] flex items-center space-x-2 show">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toastMsg" class="font-semibold text-sm">Sistem Siap</span>
+    </div>
+
+    <!-- DECAP CMS INLINE CONFIGURATION -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+        if (window.location.hash === "#admin-cms") {
+            document.body.innerHTML = '<div id="nc-root"></div>';
+            CMS.init({
+                config: {
+                    backend: { name: 'git-gateway', branch: 'main' },
+                    media_folder: "images",
+                    public_folder: "/images",
+                    collections: [
+                        {
+                            name: "pages", label: "Halaman Utama",
+                            files: [{
+                                label: "Landing Page", name: "index", file: "index.html",
+                                fields: [{label: "Title", name: "title", widget: "string"}]
+                            }]
+                        }
+                    ]
+                }
+            });
+        }
+    </script>
+
+    <!-- SECURE JAVASCRIPT LOGIC -->
+    <script>
+        const ADMIN_PIN = "090909"; 
+        const STORAGE_KEY = "beres_official_live_v15_index";
+        let activeTargetId = null;
+
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+
+        // Mobile Menu Toggle Logic
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        function openLoginModal() {
+            const modal = document.getElementById('loginModal');
+            const innerDiv = modal.querySelector('div');
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; 
+            modal.classList.remove('opacity-0');
+            innerDiv.classList.remove('scale-95');
+            document.getElementById('adminPinInput').value = '';
+            document.getElementById('adminPinInput').focus();
+        }
+
+        function closeLoginModal() {
+            const modal = document.getElementById('loginModal');
+            const innerDiv = modal.querySelector('div');
+            modal.classList.add('opacity-0');
+            innerDiv.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function verifyPin() {
+            const pin = document.getElementById('adminPinInput').value;
+            if (pin === ADMIN_PIN) {
+                localStorage.setItem('beres_is_admin', 'true');
+                closeLoginModal();
+                activateAdminUI();
+                showToast("Akses CMS Terbuka");
+            } else {
+                alert("Akses Ditolak: PIN Tidak Valid.");
+                document.getElementById('adminPinInput').value = '';
+            }
+        }
+
+        function logoutAdmin() {
+            localStorage.removeItem('beres_is_admin');
+            document.body.classList.remove('admin-mode');
+            document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                el.removeAttribute('contenteditable');
+            });
+            location.reload();
+        }
+
+        function activateAdminUI() {
+            if (localStorage.getItem('beres_is_admin') !== 'true') return;
+            
+            document.body.classList.add('admin-mode');
+            const adminBar = document.getElementById('admin-bar');
+            if (adminBar) adminBar.classList.remove('translate-y-full');
+            
+            const selectors = 'h1, h2, h3, h4, p:not(#foo-desc), span:not(.fa-solid), li';
+            document.querySelectorAll(selectors).forEach(el => {
+                if (!el.closest('#admin-bar') && !el.closest('#loginModal') && !el.closest('#imageModal')) {
+                    el.setAttribute('contenteditable', 'true');
+                }
+            });
+        }
+
+        function saveAllChanges() {
+            if (localStorage.getItem('beres_is_admin') !== 'true') return alert("Sistem Terkunci!");
+
+            const payload = { texts: {}, images: {}, iframes: {} };
+            document.querySelectorAll('[id]').forEach(el => {
+                const excluded = ['admin-bar', 'imageModal', 'toast', 'toastMsg', 'loginModal', 'adminPinInput', 'adminTrigger'];
+                if (excluded.includes(el.id)) return;
+                
+                if (el.tagName === 'IMG') {
+                    payload.images[el.id] = el.src;
+                } else if (el.tagName === 'IFRAME') {
+                    payload.iframes[el.id] = el.src;
+                } else if (el.hasAttribute('contenteditable')) {
+                    payload.texts[el.id] = el.innerHTML;
+                }
+            });
+
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+                showToast("Berhasil Disimpan ke Server!");
+            } catch (e) {
+                alert("Gagal simpan! Memori browser tidak cukup.");
+            }
+        }
+
+        function loadSavedData() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (!stored) return;
+            try {
+                const payload = JSON.parse(stored);
+                if (payload.texts) {
+                    Object.keys(payload.texts).forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = payload.texts[id];
+                    });
+                }
+                if (payload.images) {
+                    Object.keys(payload.images).forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) {
+                            el.src = payload.images[id];
+                            el.setAttribute('referrerpolicy', 'no-referrer');
+                            el.setAttribute('crossorigin', 'anonymous');
+                        }
+                    });
+                }
+                if (payload.iframes) {
+                    Object.keys(payload.iframes).forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.src = payload.iframes[id];
+                    });
+                }
+            } catch(e) {
+                console.warn("Storage data corrupted, loading default.");
+            }
+        }
+
+        function openImageModal(id) {
+            if (localStorage.getItem('beres_is_admin') !== 'true') return;
+            activeTargetId = id;
+            const modal = document.getElementById('imageModal');
+            const imgInput = document.getElementById('imgUrlInput');
+            if (modal && imgInput) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                const target = document.getElementById(id);
+                imgInput.value = target ? target.src : "";
+                imgInput.focus();
+            }
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+            activeTargetId = null;
+        }
+
+        function applyImageURL() {
+            if (localStorage.getItem('beres_is_admin') !== 'true') return;
+            const imgInput = document.getElementById('imgUrlInput');
+            const url = imgInput?.value.trim();
+            
+            if (!url) return alert("URL tidak boleh kosong!");
+            
+            const targetEl = document.getElementById(activeTargetId);
+            if (targetEl) {
+                targetEl.src = url;
+                if(targetEl.tagName === 'IMG') {
+                    targetEl.setAttribute('referrerpolicy', 'no-referrer');
+                    targetEl.setAttribute('crossorigin', 'anonymous');
+                }
+                
+                if (activeTargetId === 'brandLogoImg' && document.getElementById('footerLogoImg')) {
+                    document.getElementById('footerLogoImg').src = url;
+                } else if (activeTargetId === 'footerLogoImg' && document.getElementById('brandLogoImg')) {
+                    document.getElementById('brandLogoImg').src = url;
+                }
+            }
+            closeImageModal();
+        }
+
+        function showToast(message) {
+            const t = document.getElementById('toast');
+            const tMsg = document.getElementById('toastMsg');
+            if (t && tMsg) {
+                tMsg.innerText = message || "Sukses!";
+                t.classList.add('show');
+                setTimeout(() => t.classList.remove('show'), 3500);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+            loadSavedData();
+            if (localStorage.getItem('beres_is_admin') === 'true') {
+                activateAdminUI();
+            }
+            setTimeout(() => {
+                const t = document.getElementById('toast');
+                if(t) t.classList.remove('show');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

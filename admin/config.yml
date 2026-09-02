@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main # Atau master, sesuai branch utama GitHub Abang
+
+media_folder: "assets/img" # Folder tempat menyimpan foto unggahan
+public_folder: "assets/img"
+
+collections:
+  - name: "cerita"
+    label: "Cerita Project"
+    folder: "content/cerita"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Judul Project", name: "title", widget: "string" }
+      - { label: "Lokasi / Kota", name: "location", widget: "select", options: ["Ponorogo", "Madiun", "Magetan", "Trenggalek", "Ngawi"] }
+      - { label: "Tanggal Pengerjaan", name: "date", widget: "datetime" }
+      - { label: "Foto Sebelum", name: "img_before", widget: "image" }
+      - { label: "Foto Proses", name: "img_process", widget: "image" }
+      - { label: "Foto Sesudah", name: "img_after", widget: "image" }
+      - { label: "Isi Cerita / Narasi", name: "body", widget: "markdown" }
