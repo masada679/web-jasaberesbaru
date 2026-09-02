@@ -27,9 +27,6 @@
     <meta name="geo.position" content="-7.8671;111.4656">
     <meta name="ICBM" content="-7.8671, 111.4656">
 
-    <!-- NETLIFY IDENTITY WIDGET -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
     <!-- JSON-LD SCHEMA MARKUP (LOCAL SEO OPTIMIZED) -->
     <script type="application/ld+json">
     {
@@ -60,53 +57,6 @@
     }
     </script>
 
-    <!-- JSON-LD SCHEMA MARKUP (BLOG / ITEM LIST) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "Cerita Kami - Jasa Bersih Lahan BERES",
-      "description": "Kisah sukses dan portofolio pengerjaan jasa pembersihan lahan kosong, potong rumput liar, babat suket, tebas semak belukar, dan tebang pohon di Ponorogo, Madiun, Magetan.",
-      "url": "https://beres-lahan.com/cerita.html",
-      "publisher": {
-        "@type": "HomeAndConstructionBusiness",
-        "name": "BERES - Jasa Bersih Lahan"
-      },
-      "blogPost": [
-        {
-          "@type": "BlogPosting",
-          "headline": "Pembersihan Lahan Kosong 500m2 di Pusat Kota Ponorogo",
-          "url": "https://beres-lahan.com/cerita.html#article-1"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Tebang Pohon Rimbun & Perapian Pekarangan Rumah Madiun",
-          "url": "https://beres-lahan.com/cerita.html#article-2"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Pembukaan Lahan Baru untuk Area Perkebunan Ngawi",
-          "url": "https://beres-lahan.com/cerita.html#article-3"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Babat Suket & Potong Rumput Liar di Magetan",
-          "url": "https://beres-lahan.com/cerita.html#article-4"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Jasa Tebas Semak Belukar Cepat di Trenggalek",
-          "url": "https://beres-lahan.com/cerita.html#article-5"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Kuli Pembersihan Lahan & Puing Bangunan Ponorogo",
-          "url": "https://beres-lahan.com/cerita.html#article-6"
-        }
-      ]
-    }
-    </script>
-
     <!-- STYLES & FONTS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -116,31 +66,32 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         
-        /* Admin Interactive Styles */
-        body.admin-mode [contenteditable="true"] { transition: all 0.2s; border-radius: 4px; }
-        body.admin-mode [contenteditable="true"]:hover { outline: 2px dashed #10b981; background: rgba(16, 185, 129, 0.05); cursor: text; }
-        body.admin-mode [contenteditable="true"]:focus { outline: 2px solid #10b981; background: white; }
-
-        /* Admin Image Overlays */
-        .admin-img-box { position: relative; overflow: hidden; }
-        .img-overlay {
-            position: absolute; inset: 0; background: rgba(0,0,0,0.6);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: 0.3s; color: white; cursor: pointer; z-index: 20;
-            pointer-events: none; border-radius: inherit;
-        }
-        body.admin-mode .admin-img-box:hover .img-overlay { opacity: 1; pointer-events: auto; }
-
-        /* Toast UI */
-        #toast { transform: translateY(100px); opacity: 0; transition: all 0.5s; pointer-events: none; }
-        #toast.show { transform: translateY(0); opacity: 1; }
-
         @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .animate-bounce-slow { animation: bounce-slow 2s infinite; }
 
         /* Hide scrollbar for clean modal */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Line Clamp for Snippet */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
+        
+        /* Loader Animation */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 
@@ -151,9 +102,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 sm:h-20">
                 <!-- LOGO IMAGE -->
-                <div class="admin-img-box rounded-lg">
+                <div class="rounded-lg">
                     <img id="brandLogoImg" src="https://i.imgur.com/ZlhIa2B.png" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO+BERES'" alt="Logo BERES Jasa Bersih Lahan" class="h-10 sm:h-12 w-auto object-contain">
-                    <div class="img-overlay" onclick="openImageModal('brandLogoImg')"><i class="fa-solid fa-link"></i></div>
                 </div>
                 
                 <!-- DESKTOP MENU LINKS -->
@@ -194,173 +144,33 @@
     </nav>
 
     <main class="pt-24 sm:pt-32">
-        <!-- CERITA KAMI (BLOG PROJECT SYSTEM) -->
+        <!-- CERITA KAMI (DYNAMIC CMS SYSTEM) -->
         <section id="cerita-kami" class="pb-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- BEAUTIFIED HEADER -->
                 <header class="flex flex-col items-center text-center mb-16 border-b border-gray-200 pb-10 px-4">
                     <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-3">Portofolio & Kisah Sukses</span>
-                    <h1 id="blog-h1" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">Cerita <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 italic">Kami</span></h1>
-                    <p id="blog-p" class="text-lg text-slate-600 max-w-3xl leading-relaxed">Dokumentasi nyata perjalanan tim BERES dalam menyulap lahan terbengkalai menjadi area bersih, rapi, dan siap pakai di seluruh wilayah Jawa Timur.</p>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">Cerita <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 italic">Kami</span></h1>
+                    <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">Dokumentasi nyata perjalanan tim BERES dalam menyulap lahan terbengkalai menjadi area bersih, rapi, dan siap pakai di seluruh wilayah Jawa Timur.</p>
                 </header>
 
-                <div id="cerita-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Article Card 1 -->
-                    <article class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col">
-                        <div class="admin-img-box h-48">
-                            <img id="blog1-thumb" src="https://i.imgur.com/6tsRIeE.jpeg" class="w-full h-full object-cover" alt="Babat suket Ponorogo">
-                            <div class="img-overlay" onclick="openImageModal('blog1-thumb')"><i class="fa-solid fa-link"></i></div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span id="blog1-tag" class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs w-max mb-3">Ponorogo</span>
-                            <h3 id="blog1-title" class="text-xl font-bold text-slate-900 mb-2 leading-tight">Pembersihan Lahan Kosong 500m2 di Pusat Kota</h3>
-                            <p id="blog1-snip" class="text-slate-600 text-sm mb-4 flex-1">Lahan yang dipenuhi semak belukar setinggi 2 meter berhasil dibersihkan tuntas dalam 2 hari oleh tim tenaga kasar kami.</p>
-                            <button onclick="openArticleModal('article-1')" class="text-emerald-600 font-bold text-sm hover:text-emerald-800 flex items-center gap-1 text-left transition-colors">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                        </div>
-                        <!-- Hidden Full Content Data -->
-                        <div id="article-1-data" class="hidden">
-                            <div class="date">12 Agustus 2024</div>
-                            <div class="content">
-                                <p>Proyek ini berlokasi di pusat kota Ponorogo. Pemilik lahan berencana membangun ruko, namun kondisi tanah dipenuhi ilalang dan pohon liar yang cukup besar.</p>
-                                <p>Tim BERES menerjunkan 4 kuli pembersihan lahan profesional. Kami memulai dengan babat suket menggunakan mesin potong rumput, dilanjutkan dengan tebang pohon rimbun yang menghalangi akses masuk material.</p>
-                                <p>Hasilnya, lahan bersih total hingga ke akar, dan puing sisa pembersihan langsung kami angkut ke tempat pembuangan akhir.</p>
-                            </div>
-                            <div class="img-before">https://i.imgur.com/yh3YtDa.jpeg</div>
-                            <div class="img-during">https://i.imgur.com/XgIDp6F.jpeg</div>
-                            <div class="img-after">https://i.imgur.com/6tsRIeE.jpeg</div>
-                        </div>
-                    </article>
+                <!-- LOADING INDICATOR -->
+                <div id="loading-indicator" class="text-center py-10">
+                    <div class="loader mb-4"></div>
+                    <p class="text-slate-500 font-semibold animate-pulse">Memuat cerita terbaru dari server...</p>
+                </div>
 
-                    <!-- Article Card 2 -->
-                    <article class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col">
-                        <div class="admin-img-box h-48">
-                            <img id="blog2-thumb" src="https://i.imgur.com/Lndagpq.jpeg" class="w-full h-full object-cover" alt="Tebang Pohon Madiun">
-                            <div class="img-overlay" onclick="openImageModal('blog2-thumb')"><i class="fa-solid fa-link"></i></div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span id="blog2-tag" class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs w-max mb-3">Madiun</span>
-                            <h3 id="blog2-title" class="text-xl font-bold text-slate-900 mb-2 leading-tight">Tebang Pohon Rimbun & Perapian Pekarangan Rumah</h3>
-                            <p id="blog2-snip" class="text-slate-600 text-sm mb-4 flex-1">Pemangkasan dahan pohon mangga dan rambutan yang membahayakan atap rumah warga saat musim hujan.</p>
-                            <button onclick="openArticleModal('article-2')" class="text-emerald-600 font-bold text-sm hover:text-emerald-800 flex items-center gap-1 text-left transition-colors">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                        </div>
-                        <!-- Hidden Full Content Data -->
-                        <div id="article-2-data" class="hidden">
-                            <div class="date">05 September 2024</div>
-                            <div class="content">
-                                <p>Memasuki musim penghujan, klien kami di Madiun khawatir dahan pohon yang terlalu rimbun akan patah dan menimpa atap rumah.</p>
-                                <p>Kami melakukan proses tebang pohon dan pangkas dahan dengan sangat hati-hati menggunakan peralatan safety lengkap. Selain memotong, tim tenaga kasar kami juga membersihkan sisa daun dan ranting yang berserakan di pekarangan.</p>
-                                <p>Kini pekarangan terlihat lebih terang, bersih, dan yang terpenting, aman dari resiko pohon tumbang.</p>
-                            </div>
-                            <div class="img-before">https://i.imgur.com/a0M3UjM.jpeg</div>
-                            <div class="img-during">https://i.imgur.com/Rnkgq7P.jpeg</div>
-                            <div class="img-after">https://i.imgur.com/Lndagpq.jpeg</div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 3 -->
-                    <article class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col">
-                        <div class="admin-img-box h-48">
-                            <img id="blog3-thumb" src="https://i.imgur.com/Xkkbwp5.jpeg" class="w-full h-full object-cover" alt="Pembersihan Lahan Ngawi">
-                            <div class="img-overlay" onclick="openImageModal('blog3-thumb')"><i class="fa-solid fa-link"></i></div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span id="blog3-tag" class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs w-max mb-3">Ngawi</span>
-                            <h3 id="blog3-title" class="text-xl font-bold text-slate-900 mb-2 leading-tight">Pembukaan Lahan Baru untuk Area Perkebunan</h3>
-                            <p id="blog3-snip" class="text-slate-600 text-sm mb-4 flex-1">Proses tebas semak belukar dan perataan tanah untuk persiapan penanaman bibit buah di area seluas 1 Hektar.</p>
-                            <button onclick="openArticleModal('article-3')" class="text-emerald-600 font-bold text-sm hover:text-emerald-800 flex items-center gap-1 text-left transition-colors">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                        </div>
-                        <!-- Hidden Full Content Data -->
-                        <div id="article-3-data" class="hidden">
-                            <div class="date">20 Oktober 2024</div>
-                            <div class="content">
-                                <p>Klien membutuhkan pembukaan lahan cepat di daerah Ngawi untuk mengejar musim tanam perkebunan buah.</p>
-                                <p>Pekerjaan ini membutuhkan kombinasi potong rumput skala besar dan tenaga kuli pembersihan lahan untuk mencabut sisa akar yang membandel. Kami bekerja ekstra cepat dengan sistem borongan.</p>
-                                <p>Dalam waktu kurang dari seminggu, lahan seluas 1 hektar siap digunakan untuk proses pengolahan tanah selanjutnya.</p>
-                            </div>
-                            <div class="img-before">https://i.imgur.com/1vQn4lD.jpeg</div>
-                            <div class="img-during">https://i.imgur.com/a290AS1.jpeg</div>
-                            <div class="img-after">https://i.imgur.com/Xkkbwp5.jpeg</div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 4 -->
-                    <article class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col">
-                        <div class="admin-img-box h-48">
-                            <img id="blog4-thumb" src="https://i.imgur.com/98MN3Vl.jpeg" class="w-full h-full object-cover" alt="Babat Suket Magetan">
-                            <div class="img-overlay" onclick="openImageModal('blog4-thumb')"><i class="fa-solid fa-link"></i></div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span id="blog4-tag" class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs w-max mb-3">Magetan</span>
-                            <h3 id="blog4-title" class="text-xl font-bold text-slate-900 mb-2 leading-tight">Babat Suket & Potong Rumput Liar di Magetan</h3>
-                            <p id="blog4-snip" class="text-slate-600 text-sm mb-4 flex-1">Lahan pekarangan yang lama ditinggalkan kini bersih dari rumput liar berkat layanan babat suket profesional kami.</p>
-                            <button onclick="openArticleModal('article-4')" class="text-emerald-600 font-bold text-sm hover:text-emerald-800 flex items-center gap-1 text-left transition-colors">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                        </div>
-                        <!-- Hidden Full Content Data -->
-                        <div id="article-4-data" class="hidden">
-                            <div class="date">15 November 2024</div>
-                            <div class="content">
-                                <p>Pekarangan rumah klien di Magetan ini sudah bertahun-tahun tidak dirawat sehingga rumput liar tumbuh sangat lebat dan mengganggu pemandangan serta menjadi sarang hama.</p>
-                                <p>Tim kami datang dengan peralatan potong rumput modern. Proses babat suket dilakukan secara menyeluruh hingga ke sudut-sudut lahan yang sulit dijangkau.</p>
-                                <p>Setelah pemotongan selesai, seluruh sisa rumput dikumpulkan dan dibuang, meninggalkan pekarangan yang rapi dan siap ditata kembali.</p>
-                            </div>
-                            <div class="img-before">https://i.imgur.com/a0M3UjM.jpeg</div>
-                            <div class="img-during">https://i.imgur.com/Rnkgq7P.jpeg</div>
-                            <div class="img-after">https://i.imgur.com/98MN3Vl.jpeg</div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 5 -->
-                    <article class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col">
-                        <div class="admin-img-box h-48">
-                            <img id="blog5-thumb" src="https://i.imgur.com/Rnkgq7P.jpeg" class="w-full h-full object-cover" alt="Tebas Semak Trenggalek">
-                            <div class="img-overlay" onclick="openImageModal('blog5-thumb')"><i class="fa-solid fa-link"></i></div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span id="blog5-tag" class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs w-max mb-3">Trenggalek</span>
-                            <h3 id="blog5-title" class="text-xl font-bold text-slate-900 mb-2 leading-tight">Jasa Tebas Semak Belukar Cepat di Trenggalek</h3>
-                            <p id="blog5-snip" class="text-slate-600 text-sm mb-4 flex-1">Penanganan semak belukar padat di area perbukitan Trenggalek, diselesaikan dengan cepat dan aman.</p>
-                            <button onclick="openArticleModal('article-5')" class="text-emerald-600 font-bold text-sm hover:text-emerald-800 flex items-center gap-1 text-left transition-colors">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                        </div>
-                        <!-- Hidden Full Content Data -->
-                        <div id="article-5-data" class="hidden">
-                            <div class="date">02 Desember 2024</div>
-                            <div class="content">
-                                <p>Kondisi geografis Trenggalek yang berbukit seringkali membuat lahan cepat ditumbuhi semak belukar yang tebal dan sulit dibersihkan secara manual.</p>
-                                <p>Kami menggunakan teknik tebas semak khusus yang efisien. Tim tenaga kasar kami bekerja ekstra keras untuk memastikan akar-akar semak yang membandel ikut tercabut agar tidak cepat tumbuh kembali.</p>
-                                <p>Lahan yang sebelumnya tidak bisa dilewati kini menjadi area terbuka yang siap dimanfaatkan oleh pemiliknya.</p>
-                            </div>
-                            <div class="img-before">https://i.imgur.com/1vQn4lD.jpeg</div>
-                            <div class="img-during">https://i.imgur.com/a290AS1.jpeg</div>
-                            <div class="img-after">https://i.imgur.com/Rnkgq7P.jpeg</div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 6 -->
-                    <article class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col">
-                        <div class="admin-img-box h-48">
-                            <img id="blog6-thumb" src="https://i.imgur.com/a290AS1.jpeg" class="w-full h-full object-cover" alt="Kuli Pembersihan Ponorogo">
-                            <div class="img-overlay" onclick="openImageModal('blog6-thumb')"><i class="fa-solid fa-link"></i></div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span id="blog6-tag" class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs w-max mb-3">Ponorogo</span>
-                            <h3 id="blog6-title" class="text-xl font-bold text-slate-900 mb-2 leading-tight">Kuli Pembersihan Lahan & Puing Bangunan Ponorogo</h3>
-                            <p id="blog6-snip" class="text-slate-600 text-sm mb-4 flex-1">Pembersihan sisa material dan puing bangunan tua menggunakan tenaga kasar berpengalaman.</p>
-                            <button onclick="openArticleModal('article-6')" class="text-emerald-600 font-bold text-sm hover:text-emerald-800 flex items-center gap-1 text-left transition-colors">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                        </div>
-                        <!-- Hidden Full Content Data -->
-                        <div id="article-6-data" class="hidden">
-                            <div class="date">10 Januari 2025</div>
-                            <div class="content">
-                                <p>Selain rumput dan pohon, kami juga menangani pembersihan lahan dari puing-puing sisa bangunan tua yang baru saja dirobohkan di area Ponorogo.</p>
-                                <p>Pekerjaan ini membutuhkan kuli pembersihan lahan yang kuat dan terbiasa dengan kerja fisik berat. Kami mengumpulkan batu bata, beton, dan kayu sisa, lalu memuatnya ke dalam truk pembuangan.</p>
-                                <p>Setelah puing bersih, kami melakukan perataan tanah dasar sehingga lahan siap untuk proses pembangunan pondasi baru.</p>
-                            </div>
-                            <div class="img-before">https://i.imgur.com/mvHe7gc.jpeg</div>
-                            <div class="img-during">https://i.imgur.com/g6NnvKL.jpeg</div>
-                            <div class="img-after">https://i.imgur.com/a290AS1.jpeg</div>
-                        </div>
-                    </article>
+                <!-- DYNAMIC GRID CONTAINER -->
+                <div id="cerita-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+                    <!-- Artikel akan di-render di sini oleh JavaScript -->
+                </div>
+                
+                <!-- ERROR MESSAGE CONTAINER -->
+                <div id="error-message" class="hidden text-center py-10 bg-red-50 rounded-2xl border border-red-100">
+                    <i class="fa-solid fa-triangle-exclamation text-4xl text-red-400 mb-3"></i>
+                    <h3 class="text-lg font-bold text-slate-800">Gagal Memuat Data</h3>
+                    <p class="text-slate-600 text-sm mt-2">Terjadi kesalahan saat mengambil data dari server. Silakan muat ulang halaman.</p>
                 </div>
             </div>
         </section>
@@ -382,11 +192,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-slate-800 pb-6 text-center sm:text-left">
                 <div>
-                    <div class="admin-img-box inline-block mb-3 bg-white p-2 rounded-md shadow-sm">
-                        <img id="footerLogoImg" src="https://i.imgur.com/ZlhIa2B.png" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO+BERES'" alt="Logo Footer BERES Jasa Bersih Lahan" class="h-8 w-auto object-contain">
-                        <div class="img-overlay" onclick="openImageModal('footerLogoImg')"><i class="fa-solid fa-link text-[10px]"></i></div>
+                    <div class="inline-block mb-3 bg-white p-2 rounded-md shadow-sm">
+                        <img src="https://i.imgur.com/ZlhIa2B.png" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO+BERES'" alt="Logo Footer BERES Jasa Bersih Lahan" class="h-8 w-auto object-contain">
                     </div>
-                    <p id="foo-desc" class="text-xs leading-relaxed max-w-xs uppercase font-semibold">Solusi bersih lahan profesional tuntas dan terpercaya untuk area Jawa Timur.</p>
+                    <p class="text-xs leading-relaxed max-w-xs uppercase font-semibold">Solusi bersih lahan profesional tuntas dan terpercaya untuk area Jawa Timur.</p>
                 </div>
                 <div class="flex justify-center space-x-6 text-2xl">
                     <a href="https://www.youtube.com/@beres" target="_blank" class="hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
@@ -402,19 +211,18 @@
             </div>
 
             <div class="flex justify-between items-center mt-6 text-xs uppercase tracking-tighter">
-                <p id="copyright-txt">© 2024 BERES - Jasa Bersih Lahan. All rights reserved.</p>
+                <p>© 2024 BERES - Jasa Bersih Lahan. All rights reserved.</p>
                 <div class="flex items-center space-x-2">
-                    <!-- DISCREET ADMIN LOGIN BUTTON -->
-                    <button id="adminTrigger" onclick="openLoginModal()" class="text-slate-700 hover:text-emerald-500 transition focus:outline-none" title="Admin Control">
+                    <a href="/admin/" class="text-slate-700 hover:text-emerald-500 transition focus:outline-none" title="Admin Control">
                         <i class="fa-solid fa-lock text-sm"></i> Admin
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- FLOATING WA -->
-    <a id="btnWaFloat" href="https://api.whatsapp.com/send?phone=6285188226469" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-emerald-600 transition z-40 animate-bounce-slow">
+    <a href="https://api.whatsapp.com/send?phone=6285188226469" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-emerald-600 transition z-40 animate-bounce-slow">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -443,15 +251,15 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
                     <div>
                         <p class="text-xs font-bold text-center mb-2 text-slate-500 uppercase">Sebelum</p>
-                        <img id="modal-img-before" src="" class="w-full h-40 object-cover rounded-xl shadow-sm" alt="Sebelum">
+                        <img id="modal-img-before" src="" class="w-full h-40 object-cover rounded-xl shadow-sm" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'" alt="Sebelum">
                     </div>
                     <div>
                         <p class="text-xs font-bold text-center mb-2 text-slate-500 uppercase">Proses</p>
-                        <img id="modal-img-during" src="" class="w-full h-40 object-cover rounded-xl shadow-sm" alt="Proses">
+                        <img id="modal-img-during" src="" class="w-full h-40 object-cover rounded-xl shadow-sm" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'" alt="Proses">
                     </div>
                     <div>
                         <p class="text-xs font-bold text-center mb-2 text-slate-500 uppercase">Sesudah</p>
-                        <img id="modal-img-after" src="" class="w-full h-40 object-cover rounded-xl shadow-sm" alt="Sesudah">
+                        <img id="modal-img-after" src="" class="w-full h-40 object-cover rounded-xl shadow-sm" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'" alt="Sesudah">
                     </div>
                 </div>
 
@@ -467,584 +275,171 @@
         </div>
     </div>
 
-    <!-- ADMIN LOGIN MODAL -->
-    <div id="loginModal" class="fixed inset-0 bg-black/80 z-[300] items-center justify-center p-4 backdrop-blur-sm transition-opacity opacity-0 hidden">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 relative transform transition-transform duration-300 flex flex-col scale-95">
-            <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600 text-3xl shadow-inner">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-800">Admin CMS Login</h3>
-                <p class="text-xs text-slate-500 mt-1">Masukkan PIN Editor (090909) atau gunakan Netlify Identity.</p>
-            </div>
-            <input type="password" id="adminPinInput" class="w-full border-2 border-gray-200 rounded-xl p-3 text-center text-2xl tracking-widest focus:border-emerald-500 outline-none mb-6 font-bold text-slate-700 transition" placeholder="••••••" onkeypress="if(event.key === 'Enter') verifyPin()">
-            <div class="flex flex-col space-y-3">
-                <div class="flex space-x-3">
-                    <button onclick="closeLoginModal()" class="flex-1 py-3 text-slate-600 font-bold hover:bg-slate-100 rounded-xl transition">Batal</button>
-                    <button onclick="verifyPin()" class="flex-1 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-200">Akses PIN</button>
-                </div>
-                <button onclick="netlifyIdentity.open()" class="w-full py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition text-sm">
-                    <i class="fa-solid fa-cloud mr-2"></i> Login via Netlify Identity
-                </button>
-            </div>
-        </div>
-    </div>
+    <!-- MARKED.JS UNTUK PARSING MARKDOWN -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-    <!-- ADMIN PANEL UI -->
-    <div id="admin-bar" class="fixed bottom-0 left-0 w-full bg-slate-900 border-t border-emerald-500 p-4 transform transition-transform duration-300 z-[100] flex flex-col md:flex-row justify-between items-center text-white shadow-2xl translate-y-full">
-        <div class="flex items-center space-x-3 mb-3 md:mb-0">
-            <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold"><i class="fa-solid fa-user-tie"></i></div>
-            <div>
-                <h4 class="font-bold text-sm leading-none">CMS Editor Aktif</h4>
-                <p class="text-[11px] text-gray-400 mt-1">Klik teks untuk edit. Klik ikon link untuk ganti gambar.</p>
-            </div>
-        </div>
-        <div class="flex space-x-3">
-            <button onclick="openAddStoryModal()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-xs sm:text-sm font-bold transition flex items-center">
-                <i class="fa-solid fa-plus mr-2"></i> Tambah Cerita
-            </button>
-            <button onclick="saveAllChanges()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-xs sm:text-sm font-bold transition flex items-center">
-                <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Simpan
-            </button>
-            <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-xs sm:text-sm font-bold transition flex items-center">
-                <i class="fa-solid fa-power-off mr-2"></i> Keluar
-            </button>
-        </div>
-    </div>
-
-    <!-- ADD STORY MODAL -->
-    <div id="addStoryModal" class="fixed inset-0 bg-black/80 z-[300] hidden items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 relative max-h-[90vh] overflow-y-auto no-scrollbar">
-            <h3 class="text-xl font-bold mb-4 text-slate-800">Tambah Cerita Project Baru</h3>
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-1">Judul Cerita Project</label>
-                    <input type="text" id="newStoryTitle" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Contoh: Pembersihan Lahan 1000m2...">
-                </div>
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-1">Lokasi / Kota</label>
-                    <select id="newStoryLocation" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-emerald-500 outline-none">
-                        <option value="Ponorogo">Ponorogo</option>
-                        <option value="Madiun">Madiun</option>
-                        <option value="Magetan">Magetan</option>
-                        <option value="Trenggalek">Trenggalek</option>
-                        <option value="Ngawi">Ngawi</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-1">Isi Artikel / Narasi Project</label>
-                    <textarea id="newStoryContent" rows="4" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Ceritakan detail pengerjaan..."></textarea>
-                </div>
-                
-                <!-- DUAL IMAGE UPLOAD OPTIONS -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-                    <div class="bg-gray-50 p-3 rounded-xl border border-gray-200">
-                        <label class="block text-xs font-bold text-slate-700 mb-2">Foto Before</label>
-                        <div class="space-y-2">
-                            <input type="file" id="newStoryFileBefore" accept="image/*" class="w-full text-[10px] text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[10px] file:font-semibold file:bg-emerald-100 file:text-emerald-700 hover:file:bg-emerald-200 transition">
-                            <div class="flex items-center justify-center space-x-2">
-                                <hr class="flex-1 border-gray-200"><span class="text-[9px] text-gray-400 font-bold">ATAU</span><hr class="flex-1 border-gray-200">
-                            </div>
-                            <input type="url" id="newStoryImgBefore" class="w-full border border-gray-300 rounded-md p-2 text-xs focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="URL: https://...">
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-3 rounded-xl border border-gray-200">
-                        <label class="block text-xs font-bold text-slate-700 mb-2">Foto Proses</label>
-                        <div class="space-y-2">
-                            <input type="file" id="newStoryFileDuring" accept="image/*" class="w-full text-[10px] text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[10px] file:font-semibold file:bg-emerald-100 file:text-emerald-700 hover:file:bg-emerald-200 transition">
-                            <div class="flex items-center justify-center space-x-2">
-                                <hr class="flex-1 border-gray-200"><span class="text-[9px] text-gray-400 font-bold">ATAU</span><hr class="flex-1 border-gray-200">
-                            </div>
-                            <input type="url" id="newStoryImgDuring" class="w-full border border-gray-300 rounded-md p-2 text-xs focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="URL: https://...">
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-3 rounded-xl border border-gray-200">
-                        <label class="block text-xs font-bold text-slate-700 mb-2">Foto Sesudah</label>
-                        <div class="space-y-2">
-                            <input type="file" id="newStoryFileAfter" accept="image/*" class="w-full text-[10px] text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[10px] file:font-semibold file:bg-emerald-100 file:text-emerald-700 hover:file:bg-emerald-200 transition">
-                            <div class="flex items-center justify-center space-x-2">
-                                <hr class="flex-1 border-gray-200"><span class="text-[9px] text-gray-400 font-bold">ATAU</span><hr class="flex-1 border-gray-200">
-                            </div>
-                            <input type="url" id="newStoryImgAfter" class="w-full border border-gray-300 rounded-md p-2 text-xs focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="URL: https://...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-end space-x-3 mt-6">
-                <button onclick="closeAddStoryModal()" class="px-4 py-2 text-slate-600 font-semibold hover:bg-gray-100 rounded-lg transition">Batal</button>
-                <button onclick="submitNewStory()" class="px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition">Simpan & Terbitkan</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL URL GAMBAR -->
-    <div id="imageModal" class="fixed inset-0 bg-black/80 z-[200] hidden items-center justify-center p-4">
-        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative">
-            <h3 class="text-xl font-bold mb-2 text-slate-800">Ubah Media</h3>
-            <p class="text-sm text-slate-500 mb-4">Masukkan URL gambar baru atau URL Embed YouTube.</p>
-            <input type="text" id="imgUrlInput" class="w-full border border-gray-300 rounded-lg p-3 mb-5 focus:ring-2 focus:ring-emerald-500 outline-none text-slate-800" placeholder="https://...">
-            <div class="flex justify-end space-x-3">
-                <button onclick="closeImageModal()" class="px-4 py-2 text-slate-600 font-semibold hover:bg-gray-100 rounded-lg transition">Batal</button>
-                <button onclick="applyImageURL()" class="px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition">Terapkan</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-full shadow-lg z-[250] flex items-center space-x-2 show">
-        <i class="fa-solid fa-check-circle"></i>
-        <span id="toastMsg" class="font-semibold text-sm">Sistem Siap</span>
-    </div>
-
-    <!-- DECAP CMS INLINE CONFIGURATION -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- SCRIPT UTAMA: FETCH DATA DARI GITHUB API (HEADLESS CMS) -->
     <script>
-        if (window.location.hash === "#admin-cms") {
-            document.body.innerHTML = '<div id="nc-root"></div>';
-            CMS.init({
-                config: {
-                    backend: { name: 'git-gateway', branch: 'main' },
-                    media_folder: "images",
-                    public_folder: "/images",
-                    collections: [
-                        {
-                            name: "pages", label: "Halaman Cerita",
-                            files: [{
-                                label: "Cerita Page", name: "cerita", file: "cerita.html",
-                                fields: [{label: "Title", name: "title", widget: "string"}]
-                            }]
-                        }
-                    ]
-                }
-            });
-        }
-    </script>
-
-    <!-- SECURE JAVASCRIPT LOGIC (FRONTEND CMS & INTERACTIONS) -->
-    <script>
-        const ADMIN_PIN = "090909"; 
-        const STORAGE_KEY = "beres_official_live_v17_cerita";
-        let activeTargetId = null;
-        let currentArticleId = null;
-
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-
         // Mobile Menu Toggle Logic
         document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         });
 
-        function openLoginModal() {
-            const modal = document.getElementById('loginModal');
-            const innerDiv = modal.querySelector('div');
-            modal.classList.remove('hidden');
-            void modal.offsetWidth; 
-            modal.classList.remove('opacity-0');
-            innerDiv.classList.remove('scale-95');
-            document.getElementById('adminPinInput').value = '';
-            document.getElementById('adminPinInput').focus();
-        }
+        // Array global untuk menyimpan data artikel yang di-fetch
+        let articlesData = [];
 
-        function closeLoginModal() {
-            const modal = document.getElementById('loginModal');
-            const innerDiv = modal.querySelector('div');
-            modal.classList.add('opacity-0');
-            innerDiv.classList.add('scale-95');
-            setTimeout(() => modal.classList.add('hidden'), 300);
-        }
-
-        function verifyPin() {
-            const pin = document.getElementById('adminPinInput').value;
-            if (pin === ADMIN_PIN) {
-                localStorage.setItem('beres_is_admin', 'true');
-                closeLoginModal();
-                activateAdminUI();
-                showToast("Akses CMS Terbuka");
-            } else {
-                alert("Akses Ditolak: PIN Tidak Valid.");
-                document.getElementById('adminPinInput').value = '';
-            }
-        }
-
-        function logoutAdmin() {
-            localStorage.removeItem('beres_is_admin');
-            document.body.classList.remove('admin-mode');
-            document.querySelectorAll('[contenteditable="true"]').forEach(el => {
-                el.removeAttribute('contenteditable');
-            });
-            location.reload();
-        }
-
-        function activateAdminUI() {
-            if (localStorage.getItem('beres_is_admin') !== 'true') return;
+        // Fungsi untuk mem-parsing Frontmatter (YAML) dan Body dari file Markdown
+        function parseMarkdownFile(rawText) {
+            const parts = rawText.split('---');
+            if (parts.length < 3) return { meta: {}, body: rawText };
             
-            document.body.classList.add('admin-mode');
-            const adminBar = document.getElementById('admin-bar');
-            if (adminBar) adminBar.classList.remove('translate-y-full');
+            const metaStr = parts[1];
+            const bodyStr = parts.slice(2).join('---').trim();
+            const meta = {};
             
-            // Note: #articleModal is intentionally NOT excluded so Title, Location, and Date can be edited
-            const selectors = 'h1, h2, h3, h4, p:not(#foo-desc), span:not(.fa-solid), li';
-            document.querySelectorAll(selectors).forEach(el => {
-                if (!el.closest('#admin-bar') && !el.closest('#loginModal') && !el.closest('#imageModal') && !el.closest('#addStoryModal')) {
-                    el.setAttribute('contenteditable', 'true');
+            metaStr.split('\n').forEach(line => {
+                const colonIdx = line.indexOf(':');
+                if (colonIdx > -1) {
+                    const key = line.slice(0, colonIdx).trim();
+                    let val = line.slice(colonIdx + 1).trim();
+                    // Hapus tanda kutip jika ada
+                    if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+                        val = val.slice(1, -1);
+                    }
+                    meta[key] = val;
                 }
             });
+            
+            return { meta, body: bodyStr };
         }
 
-        function saveAllChanges() {
-            if (localStorage.getItem('beres_is_admin') !== 'true') return alert("Sistem Terkunci!");
+        // Fungsi untuk memastikan URL gambar valid (menangani path relatif dari CMS)
+        function getValidImageUrl(url) {
+            if (!url) return 'https://via.placeholder.com/400x300?text=No+Image';
+            if (url.startsWith('http')) return url;
+            if (url.startsWith('/')) return url;
+            return '/' + url;
+        }
 
-            const payload = { texts: {}, images: {}, iframes: {}, html: {} };
-            
-            // Save grid HTML for dynamically added stories and synced modal edits
-            const grid = document.getElementById('cerita-grid');
-            if(grid) payload.html['cerita-grid'] = grid.innerHTML;
-
-            document.querySelectorAll('[id]').forEach(el => {
-                const excluded = ['admin-bar', 'imageModal', 'toast', 'toastMsg', 'loginModal', 'adminPinInput', 'adminTrigger', 'articleModal', 'addStoryModal', 'cerita-grid'];
-                if (excluded.includes(el.id) || el.id.startsWith('newStory')) return;
-                
-                if (el.tagName === 'IMG') {
-                    payload.images[el.id] = el.src;
-                } else if (el.tagName === 'IFRAME') {
-                    payload.iframes[el.id] = el.src;
-                } else if (el.hasAttribute('contenteditable')) {
-                    payload.texts[el.id] = el.innerHTML;
-                }
-            });
+        // Fungsi utama untuk mengambil dan merender cerita dari GitHub API
+        async function loadCMSStories() {
+            const gridContainer = document.getElementById('cerita-grid');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const errorMessage = document.getElementById('error-message');
 
             try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-                showToast("Berhasil Disimpan ke Server!");
-            } catch (e) {
-                alert("Gagal simpan! Memori browser tidak cukup.");
-            }
-        }
-
-        function loadSavedData() {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (!stored) return;
-            try {
-                const payload = JSON.parse(stored);
+                // Fetch daftar file dari repositori GitHub
+                const response = await fetch('https://api.github.com/repos/masada679/web-jasaberesbaru/contents/content/cerita');
                 
-                if (payload.html && payload.html['cerita-grid']) {
-                    const grid = document.getElementById('cerita-grid');
-                    if(grid) grid.innerHTML = payload.html['cerita-grid'];
+                if (!response.ok) throw new Error('Gagal mengambil data dari GitHub API');
+                
+                const files = await response.json();
+                let htmlContent = '';
+
+                // Loop setiap file yang berakhiran .md
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    if (file.name.endsWith('.md')) {
+                        const res = await fetch(file.download_url);
+                        const rawText = await res.text();
+                        
+                        const { meta, body } = parseMarkdownFile(rawText);
+                        
+                        // Ekstrak metadata dengan nilai default jika kosong
+                        const title = meta.title || 'Proyek Pembersihan Lahan';
+                        const location = meta.location || 'Jawa Timur';
+                        const date = meta.date ? new Date(meta.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Baru Saja';
+                        
+                        const imgBefore = getValidImageUrl(meta.img_before);
+                        const imgDuring = getValidImageUrl(meta.img_during);
+                        const imgAfter = getValidImageUrl(meta.img_after || meta.image || meta.thumbnail); // Prioritaskan img_after untuk thumbnail
+                        
+                        // Parse markdown body ke HTML
+                        const htmlBody = marked.parse(body);
+                        
+                        // Buat snippet teks murni (tanpa tag HTML) untuk preview di kartu
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = htmlBody;
+                        const plainText = tempDiv.textContent || tempDiv.innerText || "";
+                        
+                        // Simpan data ke array global untuk digunakan oleh Modal
+                        articlesData.push({
+                            title, location, date, imgBefore, imgDuring, imgAfter, htmlBody
+                        });
+
+                        const currentIndex = articlesData.length - 1;
+
+                        // Bangun HTML Kartu Artikel (SEO Friendly dengan tag <article> dan <h3>)
+                        htmlContent += `
+                            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col cursor-pointer group" onclick="openArticleModal(${currentIndex})">
+                                <div class="h-48 relative overflow-hidden">
+                                    <img src="${imgAfter}" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'" alt="Pembersihan lahan di ${location} - ${title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                    <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-emerald-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm border border-emerald-100">
+                                        ${location}
+                                    </span>
+                                </div>
+                                <div class="p-6 flex-1 flex flex-col">
+                                    <h3 class="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-emerald-600 transition-colors">${title}</h3>
+                                    <div class="text-slate-600 text-sm mb-5 flex-1 line-clamp-3 leading-relaxed">
+                                        ${plainText}
+                                    </div>
+                                    <button class="text-emerald-600 font-bold text-sm flex items-center gap-1 text-left mt-auto group-hover:gap-2 transition-all">
+                                        Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </button>
+                                </div>
+                            </article>
+                        `;
+                    }
                 }
 
-                if (payload.texts) {
-                    Object.keys(payload.texts).forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) el.innerHTML = payload.texts[id];
-                    });
-                }
-                if (payload.images) {
-                    Object.keys(payload.images).forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) {
-                            el.src = payload.images[id];
-                            el.setAttribute('referrerpolicy', 'no-referrer');
-                            el.setAttribute('crossorigin', 'anonymous');
-                        }
-                    });
-                }
-                if (payload.iframes) {
-                    Object.keys(payload.iframes).forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) el.src = payload.iframes[id];
-                    });
-                }
-            } catch(e) {
-                console.warn("Storage data corrupted, loading default.");
-            }
-        }
-
-        // --- ADD STORY LOGIC ---
-        function openAddStoryModal() {
-            document.getElementById('addStoryModal').classList.remove('hidden');
-            document.getElementById('addStoryModal').classList.add('flex');
-        }
-
-        function closeAddStoryModal() {
-            document.getElementById('addStoryModal').classList.add('hidden');
-            document.getElementById('addStoryModal').classList.remove('flex');
-        }
-
-        // Helper to get image from File Input (Base64) or URL Input
-        async function getImageUrl(fileInputId, urlInputId) {
-            const fileInput = document.getElementById(fileInputId);
-            const urlInput = document.getElementById(urlInputId);
-            
-            if (fileInput && fileInput.files && fileInput.files[0]) {
-                return new Promise((resolve) => {
-                    const reader = new FileReader();
-                    reader.onload = (e) => resolve(e.target.result);
-                    reader.readAsDataURL(fileInput.files[0]);
-                });
-            }
-            return urlInput ? urlInput.value.trim() : '';
-        }
-
-        async function submitNewStory() {
-            const title = document.getElementById('newStoryTitle').value.trim();
-            const location = document.getElementById('newStoryLocation').value;
-            const content = document.getElementById('newStoryContent').value.trim();
-            
-            const imgBefore = await getImageUrl('newStoryFileBefore', 'newStoryImgBefore') || 'https://via.placeholder.com/400x300?text=No+Image';
-            const imgDuring = await getImageUrl('newStoryFileDuring', 'newStoryImgDuring') || 'https://via.placeholder.com/400x300?text=No+Image';
-            const imgAfter = await getImageUrl('newStoryFileAfter', 'newStoryImgAfter') || 'https://via.placeholder.com/400x300?text=No+Image';
-
-            if(!title || !content) return alert("Judul dan Isi Artikel wajib diisi!");
-
-            const id = 'article-' + Date.now();
-            const dateStr = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-            const snippet = content.length > 100 ? content.substring(0, 100) + '...' : content;
-
-            const cardHTML = `
-                <article class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col">
-                    <div class="admin-img-box h-48">
-                        <img id="${id}-thumb" src="${imgAfter}" class="w-full h-full object-cover" alt="Pembersihan lahan di ${location}">
-                        <div class="img-overlay" onclick="openImageModal('${id}-thumb')"><i class="fa-solid fa-link"></i></div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <span id="${id}-tag" class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs w-max mb-3">${location}</span>
-                        <h3 id="${id}-title" class="text-xl font-bold text-slate-900 mb-2 leading-tight">${title}</h3>
-                        <p id="${id}-snip" class="text-slate-600 text-sm mb-4 flex-1">${snippet}</p>
-                        <button onclick="openArticleModal('${id}')" class="text-emerald-600 font-bold text-sm hover:text-emerald-800 flex items-center gap-1 text-left transition-colors">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                    </div>
-                    <div id="${id}-data" class="hidden">
-                        <div class="date">${dateStr}</div>
-                        <div class="content"><p>${content.replace(/\n/g, '</p><p>')}</p></div>
-                        <div class="img-before">${imgBefore}</div>
-                        <div class="img-during">${imgDuring}</div>
-                        <div class="img-after">${imgAfter}</div>
-                    </div>
-                </article>
-            `;
-
-            document.getElementById('cerita-grid').insertAdjacentHTML('afterbegin', cardHTML);
-            
-            // Clear form
-            document.getElementById('newStoryTitle').value = '';
-            document.getElementById('newStoryContent').value = '';
-            document.getElementById('newStoryImgBefore').value = '';
-            document.getElementById('newStoryImgDuring').value = '';
-            document.getElementById('newStoryImgAfter').value = '';
-            document.getElementById('newStoryFileBefore').value = '';
-            document.getElementById('newStoryFileDuring').value = '';
-            document.getElementById('newStoryFileAfter').value = '';
-
-            closeAddStoryModal();
-            saveAllChanges(); 
-            showToast("Cerita Baru Berhasil Diterbitkan!");
-            
-            // Re-bind admin UI if active
-            activateAdminUI();
-        }
-
-        function openImageModal(id) {
-            if (localStorage.getItem('beres_is_admin') !== 'true') return;
-            activeTargetId = id;
-            const modal = document.getElementById('imageModal');
-            const imgInput = document.getElementById('imgUrlInput');
-            if (modal && imgInput) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                const target = document.getElementById(id);
-                imgInput.value = target ? target.src : "";
-                imgInput.focus();
-            }
-        }
-
-        function closeImageModal() {
-            const modal = document.getElementById('imageModal');
-            if (modal) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
-            activeTargetId = null;
-        }
-
-        function applyImageURL() {
-            if (localStorage.getItem('beres_is_admin') !== 'true') return;
-            const imgInput = document.getElementById('imgUrlInput');
-            const url = imgInput?.value.trim();
-            
-            if (!url) return alert("URL tidak boleh kosong!");
-            
-            const targetEl = document.getElementById(activeTargetId);
-            if (targetEl) {
-                targetEl.src = url;
-                if(targetEl.tagName === 'IMG') {
-                    targetEl.setAttribute('referrerpolicy', 'no-referrer');
-                    targetEl.setAttribute('crossorigin', 'anonymous');
+                // Sembunyikan loading, tampilkan grid
+                loadingIndicator.classList.add('hidden');
+                
+                if (htmlContent === '') {
+                    gridContainer.innerHTML = '<p class="col-span-full text-center text-slate-500">Belum ada cerita proyek yang dipublikasikan.</p>';
+                } else {
+                    gridContainer.innerHTML = htmlContent;
                 }
                 
-                if (activeTargetId === 'brandLogoImg' && document.getElementById('footerLogoImg')) {
-                    document.getElementById('footerLogoImg').src = url;
-                } else if (activeTargetId === 'footerLogoImg' && document.getElementById('brandLogoImg')) {
-                    document.getElementById('brandLogoImg').src = url;
-                }
+                gridContainer.classList.remove('hidden');
+
+            } catch (err) {
+                console.error("Error loading CMS stories:", err);
+                loadingIndicator.classList.add('hidden');
+                errorMessage.classList.remove('hidden');
             }
-            closeImageModal();
         }
 
-        // --- ARTICLE MODAL LOGIC ---
-        function openArticleModal(articleId) {
-            currentArticleId = articleId;
-            const dataDiv = document.getElementById(articleId + '-data');
-            if(!dataDiv) return;
+        // Fungsi untuk membuka Modal dan mengisi datanya secara dinamis
+        function openArticleModal(index) {
+            const data = articlesData[index];
+            if (!data) return;
 
-            const card = dataDiv.parentElement;
-            const title = card.querySelector('h3').innerText;
-            const tag = card.querySelector('span').innerText;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-tag').innerText = data.location;
+            document.getElementById('modal-date').innerText = data.date;
+            document.getElementById('modal-content').innerHTML = data.htmlBody;
             
-            const date = dataDiv.querySelector('.date').innerText;
-            const content = dataDiv.querySelector('.content').innerHTML;
-            const imgBefore = dataDiv.querySelector('.img-before').innerText;
-            const imgDuring = dataDiv.querySelector('.img-during').innerText;
-            const imgAfter = dataDiv.querySelector('.img-after').innerText;
-
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-tag').innerText = tag;
-            document.getElementById('modal-date').innerText = date;
-            document.getElementById('modal-content').innerHTML = content;
-            document.getElementById('modal-img-before').src = imgBefore;
-            document.getElementById('modal-img-during').src = imgDuring;
-            document.getElementById('modal-img-after').src = imgAfter;
+            document.getElementById('modal-img-before').src = data.imgBefore;
+            document.getElementById('modal-img-during').src = data.imgDuring;
+            document.getElementById('modal-img-after').src = data.imgAfter;
 
             const modal = document.getElementById('articleModal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden'; // Mencegah scroll pada body saat modal terbuka
         }
 
+        // Fungsi untuk menutup Modal
         function closeArticleModal() {
             const modal = document.getElementById('articleModal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-            currentArticleId = null;
+            document.body.style.overflow = 'auto'; // Mengembalikan scroll pada body
         }
 
-        function showToast(message) {
-            const t = document.getElementById('toast');
-            const tMsg = document.getElementById('toastMsg');
-            if (t && tMsg) {
-                tMsg.innerText = message || "Sukses!";
-                t.classList.add('show');
-                setTimeout(() => t.classList.remove('show'), 3500);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
-            loadSavedData();
-            if (localStorage.getItem('beres_is_admin') === 'true') {
-                activateAdminUI();
-            }
-            setTimeout(() => {
-                const t = document.getElementById('toast');
-                if(t) t.classList.remove('show');
-            }, 2000);
-
-            // Sync Modal Edits to Card Data (so saveAllChanges captures them)
-            const syncEdit = (modalId, cardSelector, isHtml = false) => {
-                const modalEl = document.getElementById(modalId);
-                if(modalEl) {
-                    modalEl.addEventListener('input', function() {
-                        if(currentArticleId && localStorage.getItem('beres_is_admin') === 'true') {
-                            const target = document.querySelector(cardSelector.replace('{id}', currentArticleId));
-                            if(target) {
-                                if(isHtml) target.innerHTML = this.innerHTML;
-                                else target.innerText = this.innerText;
-                            }
-                        }
-                    });
-                }
-            };
-
-            syncEdit('modal-title', '#{id}-title');
-            syncEdit('modal-tag', '#{id}-tag');
-            syncEdit('modal-date', '#{id}-data .date');
-            syncEdit('modal-content', '#{id}-data .content', true);
-        });
+        // Jalankan fungsi fetch saat halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", loadCMSStories);
     </script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-// Fungsi untuk mengambil dan menampilkan semua file cerita dari Decap CMS
-async function loadCMSStories() {
-  const container = document.querySelector('.grid'); // Target grid pembungkus kartu cerita
-  if (!container) return;
-
-  try {
-    // Ambil daftar file dari API GitHub public
-    const response = await fetch('https://api.github.com/repos/masada679/web-jasaberesbaru/contents/content/cerita');
-    if (!response.ok) return;
-    const files = await response.json();
-
-    // Loop setiap file markdown cerita
-    for (const file of files) {
-      if (file.name.endsWith('.md')) {
-        const res = await fetch(file.download_url);
-        const text = await res.text();
-
-        // Parsing Frontmatter (Metadata YAML) & Body Markdown
-        const parts = text.split('---');
-        if (parts.length < 3) continue;
-
-        const metadataStr = parts[1];
-        const bodyStr = parts.slice(2).join('---');
-
-        const titleMatch = metadataStr.match(/title:\s*"(.*?)"|title:\s*(.*)/);
-        const locationMatch = metadataStr.match(/location:\s*"(.*?)"|location:\s*(.*)/);
-        const imgBeforeMatch = metadataStr.match(/img_before:\s*"(.*?)"|img_before:\s*(.*)/);
-
-        const title = titleMatch ? (titleMatch[1] || titleMatch[2]) : 'Proyek Pembersihan';
-        const location = locationMatch ? (locationMatch[1] || locationMatch[2]) : 'Jawa Timur';
-        const imgBefore = imgBeforeMatch ? (imgBeforeMatch[1] || imgBeforeMatch[2]) : 'assets/img/default.jpg';
-
-        // Buat elemen kartu baru secara dinamis
-        const cardHTML = `
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-slate-100 flex flex-col justify-between">
-            <div>
-              <div class="h-48 overflow-hidden relative">
-                <img src="/${imgBefore}" alt="${title}" class="w-full h-full object-cover">
-                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
-                  ${location}
-                </span>
-              </div>
-              <div class="p-5">
-                <h3 class="font-bold text-slate-800 text-lg mb-2 leading-snug">${title}</h3>
-                <div class="text-slate-600 text-sm line-clamp-3 mb-4">${marked.parse(bodyStr)}</div>
-              </div>
-            </div>
-            <div class="px-5 pb-5">
-              <a href="#" class="text-emerald-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                Baca Selengkapnya &rarr;
-              </a>
-            </div>
-          </div>
-        `;
-
-        // Sisipkan cerita baru ke bagian paling atas grid
-        container.insertAdjacentHTML('afterbegin', cardHTML);
-      }
-    }
-  } catch (err) {
-    console.error("Gagal memuat cerita CMS:", err);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", loadCMSStories);
-</script>
 </body>
 </html>
